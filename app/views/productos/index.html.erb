@@ -1,0 +1,37 @@
+<div>
+  <h1 class="font-bold text-2xl mb-4">Productos</h1>
+
+  <table class="min-w-full bg-white" >
+
+  <thead>
+    <tr>
+      <th class="py-2">Nombre</th>
+      <th class="py-2">Descripción</th>
+      <th class="py-2">Precio</th>
+      <th class="py-2">Stock</th>
+      <th class="py-2">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @productos.each do |producto| %>
+
+      <tr>
+        <td class="border px-4 py-2"><%= producto.nombre %></td>
+        <td class="border px-4 py-2"><%= producto.descripcion %></td>
+        <td class="border px-4 py-2"><%= producto.precio %></td>
+        <td class="border px-4 py-2"><%= producto.stock %></td>
+        <td class="border px-4 py-2">
+          <%= link_to 'Mostrar', producto, class: "text-blue-500" %>
+          <%= link_to 'Editar', edit_producto_path(producto), class: "text-yellow-500" %>
+          <%= link_to 'Eliminar', producto, method: :delete, data: { confirm: '¿Estás seguro?' }, class: "text-red-500" %>
+        </td>
+      </tr>
+    <% end %>
+
+  </tbody>
+
+  </table>
+
+</div>
